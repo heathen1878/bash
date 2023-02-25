@@ -23,7 +23,6 @@ wsl --install -d Ubuntu-22.04
 
 ## Docker
 
-# TODO
 - [ ] Create a Docker container with all the tooling incl. Starship configured.
 
 
@@ -73,7 +72,7 @@ Then add the following to `.bashrc`
 eval `keychain --eval --agents ssh ssh_file1 ssh_file2`
 ```
 
-Reload bashrc `. .bashrc`
+Reload bashrc `. ~/.bashrc`
 
 ## Install Tooling
 
@@ -106,6 +105,15 @@ alias ls="ls -alhF --color --group-directories-first"
 
 Starship is a great tool for configuring your command prompt to provide more information...for example the Git branch you're in etc.
 
+### Install a font
+
+I use Jetbrains font to get the additional symbols for my Starship configuration.
+
+```shell
+curl https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip --output JetBrainsMono-2.304.zip
+unzip JetBrainsMono-2.304.zip -d /usr/share/fonts
+#Restart the terminal then set the terminal preferences to use the downloaded font
+```
 
 
 
