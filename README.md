@@ -23,7 +23,7 @@ wsl --install -d Ubuntu-22.04
 
 ## Docker
 
-#TODO
+# TODO
 - [ ] Create a Docker container with all the tooling incl. Starship configured.
 
 
@@ -82,8 +82,31 @@ Reload bashrc `. .bashrc`
 sudo apt update -y -qq
 sudo apt upgrade -y -qq
 
-sudo apt install build-essentials curl file git jq zip unzip shellcheck -y -qq
+sudo apt install build-essential curl file git jq zip unzip shellcheck -y -qq
+
+# Install Az Cli
+UBUNTU_VERSION=$(lsb_release -rs)
+
+curl --silent https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add
+curl --silent "https://packages.microsoft.com/config/ubuntu/$UBUNTU_VERSION/prod.list" | sudo tee /etc/apt/sources.list.d/msprod.list
+
+curl --silent --location https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
+
+
+## Configure aliases
+
+Create a bash_aliases file and add the following:
+
+```
+alias ls="ls -alhF --color --group-directories-first"
+```
+
+## Configure prompt using Starship
+
+Starship is a great tool for configuring your command prompt to provide more information...for example the Git branch you're in etc.
+
+
 
 
 
