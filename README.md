@@ -95,10 +95,12 @@ curl --silent --location https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 ## Configure aliases
 
-Create a bash_aliases file and add the following:
+Create a .bash_aliases file and add the following:
 
 ```
 alias ls="ls -alhF --color --group-directories-first"
+alias tfrep=""
+alias tfauth="./scripts/auth.sh"
 ```
 
 ## Configure prompt using Starship
