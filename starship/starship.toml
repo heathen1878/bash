@@ -39,3 +39,18 @@ style = "cyan bold"
 style_user = 'bold green'
 format = "\\$[$user]($style) in "
 show_always = true
+
+[terraform]
+disabled=true
+
+[git_status]
+conflicted = "😵"
+ahead = "➕"
+behind = "😰"
+diverged = "🔥"
+untracked = "🕵️"
+stashed = "📦"
+modified = "📝"
+staged = "🗃️  ×${count}"
+renamed = "👅"
+deleted = "🗑"
