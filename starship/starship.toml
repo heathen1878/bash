@@ -14,9 +14,8 @@ $character\
 """
 
 [character]
-error_symbol = "[](red bold)"
-success_symbol = "[≫](bold green)"
-
+error_symbol = "[✘](red bold)"
+success_symbol = "[➜](bold green)"
 
 [cmd_duration]
 min_time = 0
@@ -44,13 +43,22 @@ show_always = true
 disabled=true
 
 [git_status]
-conflicted = "😵"
-ahead = "➕"
-behind = "😰"
-diverged = "🔥"
-untracked = "🕵️"
-stashed = "📦"
-modified = "📝"
-staged = "🗃️  ×${count}"
-renamed = "👅"
-deleted = "🗑"
+conflicted = " 😵 "
+ahead = " ➕ "
+behind = " 😰 "
+diverged = " 🔥 "
+untracked = " 🕵️ "
+stashed = " 📦 "
+modified = " 📝 "
+#staged = " ++ "
+# had some issues with staged, comment out if you do
+staged = " 🗃️  ×${count} "
+renamed = " 👅 "
+deleted = " 🗑 "
+
+[custom.dom]
+command = 'IFS="/"; set $TERRAFORM_ENV; echo ${9} in  ${10} using module:${11}'
+style = "bold green"
+symbol = "☁️  "
+when = """ if [[ "$(pwd)" == *source*  && ! -z $TERRAFORM_ENV ]]; then exit 0; fi; exit 1 """
+format = "set to [$symbol($output)]($style) "
