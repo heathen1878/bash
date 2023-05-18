@@ -2,7 +2,9 @@ format = """
 $username\
 $hostname\
 $directory\
-${custom.dom}\
+${custom.namespace}\
+${custom.location}\
+${custom.module}\
 $git_branch\
 $git_commit\
 $git_state\
@@ -57,8 +59,31 @@ renamed = " 👅 "
 deleted = " 🗑 "
 
 [custom.dom]
-command = 'IFS="/"; set $TERRAFORM_ENV; echo ${9} in  ${10} using module:${11}'
+command = "echo ${TERRAFORM_ENV#*environments/}"
+#command = 'IFS="/"; set $TERRAFORM_ENV; echo ${9} in ${10} using module:${11}'
 style = "bold green"
 symbol = "☁️  "
 when = """ if [[ "$(pwd)" == *source*  && ! -z $TERRAFORM_ENV ]]; then exit 0; fi; exit 1 """
 format = "set to [$symbol($output)]($style) "
+
+[custom.namespace]
+command = "echo $NAMESPACE_ENVIRONMENT"
+style = "bold green"
+symbol = "☁️  "
+when = """ if [[ "$(pwd)" == *source* && ! -z $NAMESPACE ]]; then exit 0; fi; exit 1 """
+format = "set to [$symbol($output)]($style) "
+
+[custom.location]
+command = "echo $LOCATION"
+style = "bold green"
+symbol = "🌍 "
+when = """ if [[ "$(pwd)" == *source* && ! -z $LOCATION ]]; then exit 0; fi; exit 1 """
+format = "in [$symbol($output)]($style) "
+
+[custom.module]
+command = "echo $DEPLOYMENT_NAME"
+style = "bold green"
+symbol = "💬 "
+when = """ if [[ "$(pwd)" == *source* && ! -z $DEPLOYMENT_NAME ]]; then exit 0; fi; exit 1 """
+format = "using module [$symbol($output)]($style) "
+
