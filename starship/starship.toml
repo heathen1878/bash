@@ -58,14 +58,6 @@ staged = " 🗃️  ×${count} "
 renamed = " 👅 "
 deleted = " 🗑 "
 
-[custom.dom]
-command = "echo ${TERRAFORM_ENV#*environments/}"
-#command = 'IFS="/"; set $TERRAFORM_ENV; echo ${9} in ${10} using module:${11}'
-style = "bold green"
-symbol = "☁️  "
-when = """ if [[ "$(pwd)" == *source*  && ! -z $TERRAFORM_ENV ]]; then exit 0; fi; exit 1 """
-format = "set to [$symbol($output)]($style) "
-
 [custom.namespace]
 command = "echo $NAMESPACE_ENVIRONMENT"
 style = "bold green"

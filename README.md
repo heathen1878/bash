@@ -97,10 +97,16 @@ curl --silent --location https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 Create a .bash_aliases file and add the following:
 
-```
-alias ls="ls -alhF --color --group-directories-first"
-alias tfrep=""
-alias tfauth="./scripts/auth.sh"
+```bash
+alias ls='ls -alhF --color --group-directories-first'
+alias tfapply='./scripts/apply.sh'
+alias tfauth='source ./scripts/auth.sh'
+alias tfconsole='terraform -chdir= console'
+alias tfinit='./scripts/init.sh'
+alias tflint='terraform fmt --recursive'
+alias tfoutput='./scripts/output.sh'
+alias tfplan='./scripts/plan.sh'
+alias tfset='source ./scripts/setup.sh'
 ```
 
 ## Configure prompt using Starship
@@ -111,11 +117,45 @@ Starship is a great tool for configuring your command prompt to provide more inf
 
 I use Jetbrains font to get the additional symbols for my Starship configuration.
 
+#### Ubuntu
+
 ```shell
 curl https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip --output JetBrainsMono-2.304.zip
 unzip JetBrainsMono-2.304.zip -d /usr/share/fonts
 #Restart the terminal then set the terminal preferences to use the downloaded font
 ```
+
+#### WSL
+
+
+## Configure .bashrc
+
+### Catching terminal exit
+
+I wanted to logut my az cli sessions when the terminal exited; after lots of faffing around I read an article that suggested I 
+need a trap defined within my .bashrc file e.g. 
+
+```bash
+# trap for terminal exit
+trap az_logout EXIT
+```
+
+*NOTE* this trap above depends on a function called az_logout. So I decided to load my functions in .bashrc too e.g.
+
+```bash
+# load functions
+if [ -d ~/source/github/Terraform/scripts ]; then
+	for file in ~/source/github/Terraform/scripts/functions/*.sh; do
+		. "$file"
+	done
+fi
+```
+
+
+
+
+
+
 
 
 
