@@ -151,6 +151,7 @@ if [ -d ~/source/github/Terraform/scripts ]; then
 fi
 ```
 
+*NOTE* the above functions are in my Terraform [repo](https://github.com/heathen1878/Terraform/blob/main/scripts/readme.md)
 
 
 
