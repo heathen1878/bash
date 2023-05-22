@@ -99,13 +99,12 @@ Create a .bash_aliases file and add the following:
 
 ```bash
 alias ls='ls -alhF --color --group-directories-first'
-alias tfapply='./scripts/apply.sh'
+alias tfapply='source ./scripts/apply.sh'
 alias tfauth='source ./scripts/auth.sh'
-alias tfconsole='terraform -chdir= console'
-alias tfinit='./scripts/init.sh'
+alias tfinit='source ./scripts/init.sh'
 alias tflint='terraform fmt --recursive'
-alias tfoutput='./scripts/output.sh'
-alias tfplan='./scripts/plan.sh'
+alias tfoutput='source ./scripts/output.sh'
+alias tfplan='source ./scripts/plan.sh'
 alias tfset='source ./scripts/setup.sh'
 ```
 
