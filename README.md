@@ -92,7 +92,6 @@ curl --silent "https://packages.microsoft.com/config/ubuntu/$UBUNTU_VERSION/prod
 curl --silent --location https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-
 ## Configure aliases
 
 Create a .bash_aliases file and add the following:
@@ -122,6 +121,22 @@ I use Jetbrains font to get the additional symbols for my Starship configuration
 curl https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip --output JetBrainsMono-2.304.zip
 unzip JetBrainsMono-2.304.zip -d /usr/share/fonts
 #Restart the terminal then set the terminal preferences to use the downloaded font
+```
+
+### Installing dotnet sdk
+```shell
+sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-7.0s
+
+# Check SDK is installed
+dotnet --list-sdks
+
+# Might need to copy the sdk to lib...
+sudo cp -r /usr/share/dotnet/* /usr/lib/dotnet/
+
+# This is generally available from the above command
+sudo apt-get update && \
+  sudo apt-get install -y aspnetcore-runtime-7.0
 ```
 
 #### WSL
