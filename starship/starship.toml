@@ -62,7 +62,7 @@ deleted = " 🗑 "
 command = "echo $NAMESPACE_ENVIRONMENT"
 style = "bold green"
 symbol = "☁️  "
-when = """ if [[ "$(pwd)" == *source* && ! -z $NAMESPACE ]]; then exit 0; fi; exit 1 """
+when = """ if [[ "$(pwd)" == *source* && ! -z $NAMESPACE_ENVIRONMENT ]]; then exit 0; fi; exit 1 """
 format = "set to [$symbol($output)]($style) "
 
 [custom.location]
@@ -78,4 +78,3 @@ style = "bold green"
 symbol = "💬 "
 when = """ if [[ "$(pwd)" == *source* && ! -z $DEPLOYMENT_NAME ]]; then exit 0; fi; exit 1 """
 format = "using module [$symbol($output)]($style) "
-
