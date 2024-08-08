@@ -27,9 +27,17 @@ you can specify anything as a delimiter, useful when `/` is contained within you
 
 a `d` flag deletes the line
 
+```shell
+sed '/^#/d'
+sed '/^/d'
+```
+
 `-e` tells sed to execute that search pattern
+
+```shell
+sed -e '/^#/d' -e '/^/d' -e 's/search/replace/' input
+```
 
 `-f` tells sed to use a configuration file
 
 you can specify a line address before the search pattern.
-
